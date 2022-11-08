@@ -14,8 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-use 5.010;
-use strict;
+use 5.016;
 use warnings;
 
 use FindBin qw($Bin);
