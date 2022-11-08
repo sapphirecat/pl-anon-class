@@ -30,7 +30,8 @@ $duck = AnonClass->new({
 		'speak' => sub { return "quack" },
 		'feed' => sub {
 			my $self = shift;
-			my $data = $self->data->{food} += $_[0] || 1;
+			return $self->data->{food} unless @_;
+			$self->data->{food} += $_[0] || 1;
 		},
 		'AUTOLOAD_ANON' => sub {
 			my ($self, $method) = @_;
@@ -46,7 +47,7 @@ $swan = AnonClass->new({
 say "duck says ", $duck->speak;
 $duck->feed(1);
 $duck->feed(3);
-say "duck has now been fed ", $duck->feed, " units (expected: 5)";
+say "duck has now been fed ", $duck->feed, " units (expected: 4)";
 $duck->poke();
 
 say "a ", $swan->color, " swan says ", $swan->speak;
