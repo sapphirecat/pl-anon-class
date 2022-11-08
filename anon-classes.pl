@@ -25,7 +25,7 @@ use AnonClass;
 
 my ($duck, $swan);
 
-$duck = new AnonClass({
+$duck = AnonClass->new({
 		'data' => sub : lvalue { state $h; $h = {} unless $h; $h },
 		'speak' => sub { return "quack" },
 		'feed' => sub {
@@ -38,7 +38,7 @@ $duck = new AnonClass({
 		},
 	});
 
-$swan = new AnonClass({
+$swan = AnonClass->new({
 		'speak' => sub { return 'honk' },
 		'color' => sub { return 'white' },
 	});
