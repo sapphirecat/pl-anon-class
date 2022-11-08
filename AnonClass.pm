@@ -49,7 +49,7 @@ sub AUTOLOAD {
 		# I had to change the name from just AUTOLOAD because I want to pass
 		# $AUTOLOAD (I don't have a package to hide it in like Perl itself.)
 		return &{$impl->{AUTOLOAD_ANON}}($obj, $name, @_);
-	} else {
+	} elsif ($name ne 'DESTROY') {
 		croak "Undefined method $name called on anonymous class instance $instances->{$$obj}{name}";
 	}
 }
